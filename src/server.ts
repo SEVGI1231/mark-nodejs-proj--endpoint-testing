@@ -53,6 +53,38 @@ app.get("/quest/accept", (req, res) => {
   });
 });
 
+app.get("/quest/start/impossible", (req, res)=>{
+  res.json({
+    location: "Apocalypse",
+    speech: {
+        speaker: {
+            name: "master mind",
+            description: "A mysterious, robed figure"
+        },
+        text: "Ah, yes, that's a horrible choice so you'll get fireballed by a dragon and excruciating "
+    },
+    options: {
+        restart: "/"
+    }
+
+  })
+})
+app.get("/quest/start/easy", (req,res)=>{
+  res.json({
+    location: "Fairy Mountain",
+    speech: {
+      speaker: {
+        name: "Fairy godmother",
+        description: "A short and cute looking pink haired lady",
+      },
+      text: "You child. You must be scared of monsters, let your fairy godmother look after you",
+    },
+    options: {
+      restart: "/",
+    },
+  })
+})
+
 app.get("/quest/decline", (req, res) => {
   res.json({
     location: "Apocalypse",
